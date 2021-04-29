@@ -4,7 +4,20 @@
 // You can solve this using the frequency counter pattern OR the multiple pointers pattern. 
 
 function areThereDuplicates() {
-  // Code your solution here
+    let args = Array.prototype.slice.call(arguments);
+    args.sort((a,b) => a > b);
+    let start = 0;
+    let next = 1;
+    while(next < args.length){
+        if(args[start] === args[next]){
+            console.log(true);
+            return true;
+        }
+        start++;
+        next++;
+    }
+    console.log(false);
+    return false;
 }
 
 // Examples:
